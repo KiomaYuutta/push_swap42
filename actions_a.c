@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void	ft_sa(t_list_man *s_lman)
+void	ft_sa(t_list_man *s_lman, int print_m)
 {
 	int	temp;
 	int	temp_i;
@@ -25,7 +25,8 @@ void	ft_sa(t_list_man *s_lman)
 	s_lman->ia[0] = s_lman->ia[1];
 	s_lman->a[1] = temp;
 	s_lman->ia[1] = temp_i;
-	ft_printf("sa\n");
+	if (print_m == 1)
+		ft_printf("sa\n");
 }
 
 void	ft_pa(t_list_man *s_lman)
@@ -45,7 +46,7 @@ void	ft_pa(t_list_man *s_lman)
 	ft_printf("pa\n");
 }
 
-void	ft_ra(t_list_man *s_lman)
+void	ft_ra(t_list_man *s_lman, int print_m)
 {
 	unsigned int	cnt;
 	int				temp;
@@ -64,10 +65,11 @@ void	ft_ra(t_list_man *s_lman)
 	}
 	s_lman->a[cnt] = temp;
 	s_lman->ia[cnt] = temp_i;
-	ft_printf("ra\n");
+	if (print_m == 1)
+		ft_printf("ra\n");
 }
 
-void	ft_rra(t_list_man *s_lman)
+void	ft_rra(t_list_man *s_lman, int print_m)
 {
 	unsigned int	cnt;
 	int				temp;
@@ -86,5 +88,6 @@ void	ft_rra(t_list_man *s_lman)
 	}
 	s_lman->a[cnt] = temp;
 	s_lman->ia[cnt] = temp_i;
-	ft_printf("rra\n");
+	if (print_m == 1)
+		ft_printf("rra\n");
 }

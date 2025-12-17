@@ -15,22 +15,22 @@
 void	ft_sort_3(t_list_man *s_lman)
 {
 	if (s_lman->a[0] > s_lman->a[1] && s_lman->a[0] > s_lman->a[2])
-		ft_ra(s_lman);
+		ft_ra(s_lman, 1);
 	if (ft_issorted(s_lman, 'a') == 0)
 		return ;
 	if (s_lman->a[0] > s_lman->a[1])
-		ft_sa(s_lman);
+		ft_sa(s_lman, 1);
 	if (ft_issorted(s_lman, 'a') == 0)
 		return ;
 	if (s_lman->a[1] > s_lman->a[2])
 	{
-		ft_sa(s_lman);
-		ft_ra(s_lman);
+		ft_sa(s_lman, 1);
+		ft_ra(s_lman, 1);
 	}
 	if (ft_issorted(s_lman, 'a') == 0)
 		return ;
 	if (s_lman->a[0] > s_lman->a[1])
-		ft_sa(s_lman);
+		ft_sa(s_lman, 1);
 }
 
 void	ft_sort_4(t_list_man *s_lman)
@@ -43,7 +43,7 @@ void	ft_sort_4(t_list_man *s_lman)
 		if (s_lman->a[0] == min)
 			ft_pb(s_lman);
 		else
-			ft_ra(s_lman);
+			ft_ra(s_lman, 1);
 	}
 	ft_sort_3(s_lman);
 	ft_pa(s_lman);
@@ -61,14 +61,14 @@ void	ft_sort_5(t_list_man *s_lman)
 		if (s_lman->a[0] == min || s_lman->a[0] == s_min)
 			ft_pb(s_lman);
 		else
-			ft_ra(s_lman);
+			ft_ra(s_lman, 1);
 	}
 	if (s_lman->b[0] < s_lman->b[1])
 	{
 		if (s_lman->a[0] > s_lman->a[1])
 			ft_ss(s_lman);
 		else
-			ft_sb(s_lman);
+			ft_sb(s_lman, 1);
 	}
 	ft_sort_3(s_lman);
 	ft_pa(s_lman);
@@ -89,7 +89,7 @@ void	ft_sort_big(t_list_man *s_lman)
 		while (cnt++ < size)
 		{
 			if (((s_lman->ia[0] >> bit_c) & 1) == 1)
-				ft_ra(s_lman);
+				ft_ra(s_lman, 1);
 			else
 				ft_pb(s_lman);
 		}

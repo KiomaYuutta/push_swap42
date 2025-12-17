@@ -12,7 +12,7 @@
 
 #include "pushswap.h"
 
-void	ft_sb(t_list_man *s_lman)
+void	ft_sb(t_list_man *s_lman, int print_m)
 {
 	int	temp;
 	int	temp_i;
@@ -25,7 +25,8 @@ void	ft_sb(t_list_man *s_lman)
 	s_lman->ib[0] = s_lman->ib[1];
 	s_lman->b[1] = temp;
 	s_lman->ib[1] = temp_i;
-	ft_printf("sb\n");
+	if (print_m == 1)
+		ft_printf("sb\n");
 }
 
 void	ft_pb(t_list_man *s_lman)
@@ -45,7 +46,7 @@ void	ft_pb(t_list_man *s_lman)
 	ft_printf("pb\n");
 }
 
-void	ft_rb(t_list_man *s_lman)
+void	ft_rb(t_list_man *s_lman, int print_m)
 {
 	unsigned int	cnt;
 	int				temp;
@@ -64,10 +65,11 @@ void	ft_rb(t_list_man *s_lman)
 	}
 	s_lman->b[cnt] = temp;
 	s_lman->ib[cnt] = temp_i;
-	ft_printf("rb\n");
+	if (print_m == 1)
+		ft_printf("rb\n");
 }
 
-void	ft_rrb(t_list_man *s_lman)
+void	ft_rrb(t_list_man *s_lman, int print_m)
 {
 	unsigned int	cnt;
 	int				temp;
@@ -86,5 +88,6 @@ void	ft_rrb(t_list_man *s_lman)
 	}
 	s_lman->b[cnt] = temp;
 	s_lman->ib[cnt] = temp_i;
-	ft_printf("rrb\n");
+	if (print_m == 1)
+		ft_printf("rrb\n");
 }
