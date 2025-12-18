@@ -23,6 +23,12 @@ No duplicate numbers are valid
 INSTRUCTIONS:
 To compile this project a Makefile is presented in the root folder of the project
 wich will compile the project, not needing any more configuration.
+The Makefile has this set of rules:
+	-> all = runs with "make" or "make all" as it is the default rule, will run "$(NAME)" rule
+	-> $(NAME) = runs with "make push_swap", will compile the necessary files, if needed
+	-> clean = runs with "make clean", this will clear all the .o files from the project
+	-> fclean = runs with "make fclean", this will run "clean" rule plus removing any binaries generated
+	-> re = runs with "make re", this will run "fclean" rule, followed by "all" rule
 
 To run the program you call "./push_swap" plus all the input intergers
 EX: ./push_swap 1 4 7 2 9 -4 -2"
