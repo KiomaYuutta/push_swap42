@@ -12,25 +12,27 @@
 
 #include "pushswap.h"
 
-void	ft_setlist_a(t_list_man *s_lman, int argc, char *argv[])
+void	ft_setlist_a(t_list_man *s_lman, int argc)
 {
 	int	cnt;
 
 	cnt = 0;
 	s_lman->a_s = ft_cnt_i(s_lman->input);
 	s_lman->m_size = s_lman->a_s;
+	ft_int_bzero(s_lman->a, s_lman->a_s);
 	while (cnt != argc)
 	{
-		if (ft_check_isvalid(cnt, argv) == -1)
+		if (ft_check_isvalid(cnt, s_lman->input) == -1)
 			ft_error_handling(s_lman->a);
-		if (ft_int_memchr(s_lman->a, ft_atoi(argv[cnt]), argc - 1) != 0)
+		if (ft_int_memchr(s_lman, ft_atoi(s_lman->input[cnt]), s_lman->a_s) != 0)
 			ft_error_handling(s_lman->a);
-		s_lman->a[cnt] = ft_atoi(argv[cnt]);
+		s_lman->a[cnt] = ft_atoi(s_lman->input[cnt]);
 		cnt++;
 	}
 	while (((s_lman->m_size - 1) >> s_lman->mb) > 0)
 		(s_lman->mb)++;
 	ft_set_index(s_lman);
+	free_array(s_lman, s_lman->a_s);
 }
 
 void	ft_setup_lists(t_list_man *s_lman)
@@ -44,7 +46,7 @@ void	ft_setup_lists(t_list_man *s_lman)
 	s_lman->ia = (int *)ft_calloc(sizeof (int), size);
 	if (s_lman->ia == NULL)
 		ft_error_handling(s_lman->a);
-	ft_setlist_a(s_lman, ft_cnt_i(s_lman->input), s_lman->input);
+	ft_setlist_a(s_lman, ft_cnt_i(s_lman->input));
 	s_lman->b = (int *)ft_calloc(sizeof (int), size);
 	ft_int_bzero(s_lman->b, s_lman->a_s);
 	if (s_lman->b == NULL)
@@ -61,10 +63,24 @@ void	ft_setup_lists(t_list_man *s_lman)
 	}
 }
 
+void	set_vars(t_list_man *list)
+{
+	list->a = NULL;
+	list->b = NULL;
+	list->ia = NULL;
+	list->ib = NULL;
+	list->input = NULL;
+	list->a_s = 0;
+	list->b_s = 0;
+	list->m_size = 0;
+	list->mb = 0;
+}
+
 int	main(int argc, char *argv[])
 {
-	static t_list_man	s_lman;
+	t_list_man	s_lman;
 
+	set_vars(&s_lman);
 	if (argc == 1)
 		exit(0);
 	if (argc == 2)

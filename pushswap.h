@@ -31,6 +31,7 @@ typedef struct s_lman
 void	ft_mover(int *dest, int *src, unsigned int list_size);
 void	ft_movel(int *dest, int *src, unsigned int list_size);
 void	ft_error_handling(int *a);
+void	free_array(t_list_man *list_man, unsigned int size);
 void	ft_sort_start(t_list_man *s_list_man);
 void	ft_sort_3(t_list_man *s_lman);
 void	ft_sort_4(t_list_man *s_lman);
@@ -52,7 +53,7 @@ void	ft_sort_b(t_list_man *s_lman, int bit_c);
 void	ft_int_bzero(int *l, unsigned int n);
 void	ft_set_index(t_list_man *s_lman);
 int		ft_check_isvalid(int cnt, char *argv[]);
-int		ft_int_memchr(int *a, int n, int argc);
+int		ft_int_memchr(t_list_man *list, int n, unsigned int a_s);
 int		ft_issorted(t_list_man *s_lman, char list);
 int		ft_detect_min(t_list_man *s_lman);
 int		ft_detect_secondmin(t_list_man *s_lman, int min);

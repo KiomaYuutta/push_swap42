@@ -19,14 +19,16 @@ void	ft_error_handling(int *a)
 	exit(0);
 }
 
-int	ft_int_memchr(int *a, int n, int argc)
+int	ft_int_memchr(t_list_man *list, int n, unsigned int a_s)
 {
-	int			counter;
+	unsigned int	counter;
 
 	counter = 0;
-	while (counter < argc - 1)
+	if (list->a == NULL)
+		ft_printf("NULL\n");
+	while (counter < a_s - 1)
 	{
-		if (a[counter] == n)
+		if (list->a[counter] == n)
 			return (-1);
 		counter++;
 	}

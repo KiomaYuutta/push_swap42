@@ -5,7 +5,7 @@ sort.c sort_func.c actions_g.c sort_utils.c push_swap_utils2.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 

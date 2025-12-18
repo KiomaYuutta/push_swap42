@@ -6,7 +6,7 @@
 /*   By: dide-alm <dide-alm@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 09:22:10 by dide-alm          #+#    #+#             */
-/*   Updated: 2025/12/09 17:03:18 by dide-alm         ###   ########.fr       */
+/*   Updated: 2025/12/18 12:37:16 by dide-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_int_bzero(int *l, unsigned int n)
 	counter = 0;
 	while (counter < n)
 	{
-		l[counter] = '\0';
+		l[counter] = 0;
 		counter++;
 	}
 }
@@ -77,4 +77,15 @@ void	ft_set_index(t_list_man *s_lman)
 		cnt++;
 	}
 	ft_set_index2(s_lman, curr_index, max);
+}
+
+void	free_array(t_list_man *list_man, unsigned int size)
+{
+	while (size > 0)
+	{
+		free(list_man->input[size]);
+		size--;
+	}
+	free(list_man->input[size]);
+	free(list_man->input);
 }
