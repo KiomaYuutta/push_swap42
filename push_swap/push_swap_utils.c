@@ -44,17 +44,20 @@ long int	ft_latoi(const char *nptr)
 	counter = 0;
 	is_neg = 1;
 	result = 0;
-	while (nptr[counter] == 32 || (nptr[counter] >= 9 && nptr[counter] <= 13))
-		counter++;
-	if (nptr[counter] == 45 || nptr[counter] == 43)
+	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	if (*nptr == 45 || *nptr == 43)
 	{
-		if (nptr[counter] == 45)
+		if (*nptr == 45)
 			is_neg = -1;
-		counter++;
+		nptr++;
 	}
-	while (nptr[counter] >= 48 && nptr[counter] <= 57)
+	while (*nptr >= 48 && *nptr <= 57)
 	{
-		result = result * 10 + (nptr[counter] - 48);
+		if (counter > 11)
+			return (2147483650);
+		result = result * 10 + ((*nptr) - 48);
+		nptr++;
 		counter++;
 	}
 	return (result * is_neg);
